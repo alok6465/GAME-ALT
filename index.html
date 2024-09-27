@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Navigation with Fire Effect and Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        nav {
+            background-color: #222;
+            border-radius: 30px;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li {
+            position: relative;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px 20px;
+            color: white;
+            background: linear-gradient(45deg, #ff3d00, #ff9100);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff9100, #ff3d00);
+            border-radius: 10px;
+            filter: blur(20px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        nav ul li:hover::before {
+            opacity: 1;
+        }
+
+        nav ul li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(255, 61, 0, 0.6), 0 10px 20px rgba(255, 145, 0, 0.5);
+            animation: fire 1.5s infinite linear;
+        }
+
+        @keyframes fire {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .name {
+            margin-top: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                         0 0 10px rgba(18, 243, 18, 0.8),
+                         0 0 15px rgba(220, 239, 13, 0.8),
+                         0 0 20px rgba(255, 0, 0, 0.8),
+                         0 0 25px rgba(108, 243, 18, 0.8),
+                         0 0 30px rgba(129, 14, 14, 0.8),
+                         0 0 35px rgba(86, 220, 8, 0.8);
+            animation: glow 1.5s infinite alternate, pulse 3s infinite;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                             0 0 10px rgba(255, 255, 255, 0.8),
+                             0 0 15px rgba(255, 0, 0, 0.8),
+                             0 0 20px rgba(255, 0, 0, 0.8),
+                             0 0 25px rgba(255, 0, 0, 0.8),
+                             0 0 30px rgba(255, 0, 0, 0.8),
+                             0 0 35px rgba(255, 0, 0, 0.8);
+            }
+            to {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                             0 0 20px rgba(255, 255, 255, 1),
+                             0 0 30px rgba(255, 0, 0, 1),
+                             0 0 40px rgba(255, 0, 0, 1),
+                             0 0 50px rgba(255, 0, 0, 1),
+                             0 0 60px rgba(255, 0, 0, 1),
+                             0 0 70px rgba(255, 0, 0, 1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Ludo/index.html">LudoGame</a></li>
+            <li><a href="Snake-Game/index.html">SnakeGame</a></li>
+            <li><a href="CarGame/index.html">CarGame</a></li>
+        </ul>
+    </nav><br><br>
+    <div class="name"> Made by Alok Twari</div>
+</body>
+</html>
+
